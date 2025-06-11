@@ -12,7 +12,7 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    if (req.header('Accept') !== 'application/json' && req.method !== 'OPTIONS') {
+    if (req.header('Accept') !== 'application/json' &&  req.method !== 'OPTIONS') {
         res.status(406).json({ error: 'Only JSON is allowed as Accept header' });
     } else {
         next();
