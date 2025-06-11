@@ -27,7 +27,12 @@ npm run dev
 
 **Return specific plant**
 
-*ID must be within 1 and 179 and a string (For now)*!
+`127.0.0.1/plants/:id`
 
-`127.0.0.1/plants/id`
+**Return a specific image url**
 
+`127.0.0.1/img/:id`
+
+**Return all image url's**
+
+`127.0.0.1/url/all`
