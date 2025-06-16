@@ -25,6 +25,10 @@ npm run dev
 
 `127.0.0.1/plants`
 
+**Return the whole JSON file with pagination**
+
+`127.0.0.1/plants?page=1&limit=10`
+
 **Return specific plant**
 
 `127.0.0.1/plants/:id`
