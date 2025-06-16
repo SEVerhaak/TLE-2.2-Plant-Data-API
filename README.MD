@@ -31,8 +31,8 @@ npm run dev
 
 **Return a specific image url**
 
-`127.0.0.1/img/:id`
+`127.0.0.1/plants/img/:id`
 
 **Return all image url's**
 
-`127.0.0.1/url/all`
+`127.0.0.1/plants/url/all`
