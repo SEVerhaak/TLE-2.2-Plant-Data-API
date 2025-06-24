@@ -1,7 +1,9 @@
 import express from 'express';
-import plantObject from '../public/JSON/plants_clean.json' assert {type: "json"};
-import imageURL from '../public/JSON/imageURL.json' assert {type: "json"};
+import plantObject from '../public/JSON/plants_clean.json' with {type: "json"};
+import imageURL from '../public/JSON/imageURL.json' with {type: "json"};
+import plantTranslationNL from '../public/JSON/names_nl.json' with {type: "json"};
 import fs from 'fs';
+import path from 'path';
 
 const router = express.Router();
 const imagesFolder = './public/images/';
@@ -144,5 +146,33 @@ router.get('/url/all', async (req, res) => {
         res.status(400).json({message: 'GET error', requestData: req.body, error: e});
     }
 });
+
+router.get('/test/names', async (req, res) => {
+    try {
+        let nameObject = {};
+
+        const keysToInclude = [
+            'planttext',
+            'plantpollinatorstext',
+            'plantpropagation',
+            'plantcultivation',
+            'plantpests',
+            'plantmaintenance',
+            'plantcategory'
+        ];
+
+        for (let key in plantObject) {
+            nameObject[key] = {};
+            keysToInclude.forEach(k => {
+                nameObject[key][k] = plantObject[key][k];
+            });
+        }
+
+        res.status(200).json({ nameObject });
+    } catch (e) {
+        res.status(400).json({ message: 'GET error', requestData: req.body, error: e });
+    }
+});
+
 
 export default router;
